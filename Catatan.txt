@@ -1,0 +1,13 @@
+Video 1
+
+install
+yarn add typescript nodemon -D
+
+lalu config
+./node_modules/.bin/tsc --init
+
+hasilnya tsconfig.json, lalu ubah
+"allowJs": true
+"outDir": "./build"
+
+

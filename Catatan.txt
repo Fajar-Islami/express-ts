@@ -14,3 +14,17 @@ Video 2 api sederhana
 yarn add express
 lalu jika ada error maka install lagi
 yarn add @types/express -D
+
+Video 5
+npm i morgan
+
+Video 6
+yarn add compression helmet cors
+
+libray ini wajib dipakai
+compression ==> memperkecil ukuran dari respon
+cors ==> untuk mecegah error cors origin
+helmet ==> melindungi header dari client dan server
+
+lalu ada error types, intal lagi. types diinstall mode development
+yarn add @types/compression @types/helmet @types/cors -D

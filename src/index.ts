@@ -1,5 +1,6 @@
 // Ambil express dan interfacenya
 import express, { Application, json, Request, Response } from "express";
+import morgan from "morgan";
 
 class App {
   public app: Application;
@@ -12,7 +13,7 @@ class App {
 
   protected plugins(): void {
     this.app.use(express.json());
-    // this.app.use(express.urlencoded());
+    this.app.use(morgan("dev"));
   }
 
   protected routes(): void {
@@ -20,7 +21,7 @@ class App {
       res.send("Ini routes route menggnakan ts");
     });
 
-    this.app.route("/").post((req: Request, res: Response) => {
+    this.app.route("/users").post((req: Request, res: Response) => {
       console.log(req.body);
       let body = req.body;
       res.send(body);

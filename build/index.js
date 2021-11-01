@@ -28,7 +28,7 @@ var App = /** @class */ (function () {
         this.app.route("/").get(function (req, res) {
             res.send("Ini routes route menggnakan ts");
         });
-        this.app.use("/users", UserRoutes_1.default);
+        this.app.use("/api/v1/users", UserRoutes_1.default);
     };
     return App;
 }());

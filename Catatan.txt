@@ -28,6 +28,3 @@ helmet ==> melindungi header dari client dan server
 
 lalu ada error types, intal lagi. types diinstall mode development
 yarn add @types/compression @types/helmet @types/cors -D
-
-
-Video 7 - refactor

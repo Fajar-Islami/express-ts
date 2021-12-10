@@ -87,3 +87,10 @@ yarn add @types/bluebird @types/validator
 
 ////// Video 15 hash password
 bcrypt = hash 1 arah, tidak bisa dikembalikan lagi
+yarn add bcrypt
+yarn add @types/bcrypt -D
+
+
+////// Video 16 Validasi Request
+validasi data request dengan express validator
+yarn add express-validator

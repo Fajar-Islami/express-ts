@@ -113,3 +113,10 @@ Menit 2:15 foregin key di create-todo migration
 lalu tambahakan juga dimodel
 jalankan migration
 npx sequelize-cli db:migrate
+
+// Video 23
+1. API Layer = seperti controller, router
+2. Service layer = apa yang akan dilakukan
+3. repository layer = codingan untuk memanggil file model
+4. data access layer = model
+5. database

@@ -41,6 +41,10 @@ class AuthController {
 
     return res.send("login failed");
   };
+
+  profile = (req: Request, res: Response): Response => {
+    return res.send(req.app.locals.credential);
+  };
 }
 
 export default new AuthController();

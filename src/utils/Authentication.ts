@@ -19,7 +19,7 @@ class Authentication {
     username: string,
     password: string
   ): string => {
-    const secretKey: string = process.env.JWT_SECRET_KEY || "fajar-secret";
+    const secretKey: string = process.env.JWT_SECRET_KEY || "fajar-islami";
 
     const token: string = jwt.sign({ id, username, password }, secretKey);
 

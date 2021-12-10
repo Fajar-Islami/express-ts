@@ -94,3 +94,12 @@ yarn add @types/bcrypt -D
 ////// Video 16 Validasi Request
 validasi data request dengan express validator
 yarn add express-validator
+
+////// Video 18 JWT 
+Menit 11:00
+install jwt
+yarn add jsonwebtoken
+yarn add @types/jsonwebtoken -D
+
+Menit 12:47
+jwt.Sign = untuk konfirgurasi kunci jwtnya.

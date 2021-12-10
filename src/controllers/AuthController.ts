@@ -1,12 +1,12 @@
 import { Request, Response } from "express";
-import PasswordHash from "../utils/PasswordHash";
+import Authentication from "../utils/Authentication";
 
 const db = require("../db/models"); // gk semua harus pke ts
 
 class AuthController {
   register = async (req: Request, res: Response): Promise<Response> => {
     let { username, password } = req.body;
-    const hashedPassword: string = await PasswordHash.hash(password);
+    const hashedPassword: string = await Authentication.passwordHash(password);
 
     await db.user.create({
       username,
@@ -16,9 +16,31 @@ class AuthController {
     return res.status(201).send("Registrasi sukses");
   };
 
-  login(req: Request, res: Response): Response {
-    return res.send("");
-  }
+  login = async (req: Request, res: Response): Promise<Response> => {
+    // cari data user by username
+    let { username, password } = req.body;
+    const user = await db.user.findOne({
+      where: { username },
+    });
+
+    // check password
+
+    let compare = await Authentication.passwordCompare(password, user.password);
+
+    // generate token
+    if (compare) {
+      let token = Authentication.generateToken(
+        user.id,
+        username,
+        user.password
+      );
+      return res.send({
+        token,
+      });
+    }
+
+    return res.send("login failed");
+  };
 }
 
 export default new AuthController();

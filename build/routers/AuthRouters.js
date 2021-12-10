@@ -10,7 +10,7 @@ const AuthController_1 = __importDefault(require("../controllers/AuthController"
 class AuthRoutes extends BaseRouter_1.default {
     routes() {
         this.router.post("/register", AuthValidator_1.default, AuthController_1.default.register);
-        this.router.post("/login", AuthController_1.default.login);
+        this.router.post("/login", AuthValidator_1.default, AuthController_1.default.login);
     }
 }
 exports.default = new AuthRoutes().router;

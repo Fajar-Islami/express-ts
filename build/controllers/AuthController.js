@@ -12,22 +12,36 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const PasswordHash_1 = __importDefault(require("../utils/PasswordHash"));
+const Authentication_1 = __importDefault(require("../utils/Authentication"));
 const db = require("../db/models"); // gk semua harus pke ts
 class AuthController {
     constructor() {
         this.register = (req, res) => __awaiter(this, void 0, void 0, function* () {
             let { username, password } = req.body;
-            const hashedPassword = yield PasswordHash_1.default.hash(password);
+            const hashedPassword = yield Authentication_1.default.passwordHash(password);
             yield db.user.create({
                 username,
                 password: hashedPassword,
             });
             return res.status(201).send("Registrasi sukses");
         });
-    }
-    login(req, res) {
-        return res.send("");
+        this.login = (req, res) => __awaiter(this, void 0, void 0, function* () {
+            // cari data user by username
+            let { username, password } = req.body;
+            const user = yield db.user.findOne({
+                where: { username },
+            });
+            // check password
+            let compare = yield Authentication_1.default.passwordCompare(password, user.password);
+            // generate token
+            if (compare) {
+                let token = Authentication_1.default.generateToken(user.id, username, user.password);
+                return res.send({
+                    token,
+                });
+            }
+            return res.send("login failed");
+        });
     }
 }
 exports.default = new AuthController();

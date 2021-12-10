@@ -111,3 +111,5 @@ npx sequelize-cli model:generate --name todo --attributes user_id:integer,descri
 
 Menit 2:15 foregin key di create-todo migration
 lalu tambahakan juga dimodel
+jalankan migration
+npx sequelize-cli db:migrate

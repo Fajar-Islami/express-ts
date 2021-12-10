@@ -1,8 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.auth = void 0;
-var auth = function (req, res, next) {
-    var tauth = false;
+const auth = (req, res, next) => {
+    let tauth = false;
     if (tauth) {
         next();
     }

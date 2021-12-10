@@ -1,3 +1,8 @@
+// jalankan aplikasi 2 terminal
+1. yarn ts
+2. yarn dev
+
+
 ////// Video 1 instalasi awal
 
 install
@@ -75,3 +80,7 @@ lalu jalankan migrasi
 npx sequelize-cli db:migrate
 
 ////// Video 14
+Menit 2:42 pakai js biasa
+
+Menit 5:30
+yarn add @types/bluebird @types/validator

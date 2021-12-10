@@ -1,42 +1,39 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var data = [
+let data = [
     { id: 1, name: "Adi 1" },
     { id: 2, name: "Adi 2" },
     { id: 3, name: "Adi 3" },
     { id: 4, name: "Adi 4" },
 ];
-var UserController = /** @class */ (function () {
-    function UserController() {
-    }
-    UserController.prototype.index = function (req, res) {
+class UserController {
+    index(req, res) {
         return res.send(data);
-    };
-    UserController.prototype.create = function (req, res) {
-        var _a = req.body, id = _a.id, name = _a.name;
+    }
+    create(req, res) {
+        const { id, name } = req.body;
         data.push({
-            id: id,
-            name: name,
+            id,
+            name,
         });
         return res.send("sukses tambah user");
-    };
-    UserController.prototype.show = function (req, res) {
-        var id = req.params.id;
-        var person = data.find(function (item) { return item.id == id; });
+    }
+    show(req, res) {
+        const { id } = req.params;
+        let person = data.find((item) => item.id == id);
         return res.send(person);
-    };
-    UserController.prototype.update = function (req, res) {
-        var id = req.params.id;
-        var name = req.body.name;
-        var person = data.find(function (item) { return item.id == id; });
+    }
+    update(req, res) {
+        const { id } = req.params;
+        const { name } = req.body;
+        let person = data.find((item) => item.id == id);
         person.name = name;
         return res.send("update sukses");
-    };
-    UserController.prototype.delete = function (req, res) {
-        var id = req.params.id;
-        var people = data.filter(function (item) { return item.id != id; });
+    }
+    delete(req, res) {
+        const { id } = req.params;
+        let people = data.filter((item) => item.id != id);
         return res.send(people);
-    };
-    return UserController;
-}());
+    }
+}
 exports.default = new UserController();

@@ -1,11 +1,19 @@
 import { Request, Response } from "express";
 
-class AuthController {
-  index(req: Request, res: Response): Response {
-    return res.send("");
-  }
+const db = require("../db/models"); // gk semua harus pke ts
 
-  create(req: Request, res: Response): Response {
+class AuthController {
+  register = async (req: Request, res: Response): Promise<Response> => {
+    let { username, password } = req.body;
+    await db.user.create({
+      username,
+      password,
+    });
+
+    return res.status(201).send("Registrasi sukses");
+  };
+
+  login(req: Request, res: Response): Response {
     return res.send("");
   }
 }

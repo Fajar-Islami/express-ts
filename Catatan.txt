@@ -84,3 +84,6 @@ Menit 2:42 pakai js biasa
 
 Menit 5:30
 yarn add @types/bluebird @types/validator
+
+////// Video 15 hash password
+bcrypt = hash 1 arah, tidak bisa dikembalikan lagi

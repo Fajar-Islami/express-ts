@@ -103,3 +103,11 @@ yarn add @types/jsonwebtoken -D
 
 Menit 12:47
 jwt.Sign = untuk konfirgurasi kunci jwtnya.
+
+
+// Video 20 setup todo
+buat migrasi dulu
+npx sequelize-cli model:generate --name todo --attributes user_id:integer,description:text --underscored
+
+Menit 2:15 foregin key di create-todo migration
+lalu tambahakan juga dimodel

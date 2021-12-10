@@ -16,7 +16,7 @@ const auth = (req, res, next) => {
         const credential = jsonwebtoken_1.default.verify(token, secretKey);
         if (credential) {
             req.app.locals.credential = credential;
-            next();
+            return next();
         }
         return res.send("token invalid");
     }

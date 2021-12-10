@@ -4,6 +4,7 @@ import morgan from "morgan";
 import compression from "compression";
 import helmet from "helmet";
 import cors from "cors";
+import { config as dotenv } from "dotenv";
 
 //
 import UserRoutes from "./routers/UserRoutes";
@@ -15,6 +16,7 @@ class App {
     this.app = express();
     this.plugins();
     this.routes();
+    dotenv(); // untuk membaca file .env
   }
 
   protected plugins(): void {
@@ -36,4 +38,7 @@ class App {
 
 const port: number = 8000;
 const app = new App().app;
-app.listen(port, () => console.log(`Berjalan di PORT ${port}`));
+app.listen(port, () => {
+  console.log(`Berjalan di PORT ${port}`);
+  console.log(process.env.DB_HOST);
+});

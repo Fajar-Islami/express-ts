@@ -9,6 +9,7 @@ var morgan_1 = __importDefault(require("morgan"));
 var compression_1 = __importDefault(require("compression"));
 var helmet_1 = __importDefault(require("helmet"));
 var cors_1 = __importDefault(require("cors"));
+var dotenv_1 = require("dotenv");
 //
 var UserRoutes_1 = __importDefault(require("./routers/UserRoutes"));
 var App = /** @class */ (function () {
@@ -16,6 +17,7 @@ var App = /** @class */ (function () {
         this.app = (0, express_1.default)();
         this.plugins();
         this.routes();
+        (0, dotenv_1.config)(); // untuk membaca file .env
     }
     App.prototype.plugins = function () {
         this.app.use(express_1.default.json());
@@ -34,4 +36,7 @@ var App = /** @class */ (function () {
 }());
 var port = 8000;
 var app = new App().app;
-app.listen(port, function () { return console.log("Berjalan di PORT " + port); });
+app.listen(port, function () {
+    console.log("Berjalan di PORT " + port);
+    console.log(process.env.DB_HOST);
+});

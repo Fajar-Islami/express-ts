@@ -28,3 +28,13 @@ helmet ==> melindungi header dari client dan server
 
 lalu ada error types, intal lagi. types diinstall mode development
 yarn add @types/compression @types/helmet @types/cors -D
+
+Video 12
+.env = untuk menyimpan kresidensial, seperti data rahasia database.
+
+install dulu
+yarn add dotenv
+
+import { config as dotenv } from "dotenv";
+dotenv(); // untuk membaca file .env
+

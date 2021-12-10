@@ -19,6 +19,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var BaseRouter_1 = __importDefault(require("./BaseRouter"));
+var AuthMiddleware_1 = require("../middlewares/AuthMiddleware");
 // Controller
 var UserController_1 = __importDefault(require("../controllers/UserController"));
 var UserRoutes = /** @class */ (function (_super) {
@@ -27,7 +28,7 @@ var UserRoutes = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     UserRoutes.prototype.routes = function () {
-        this.router.get("/", UserController_1.default.index);
+        this.router.get("/", AuthMiddleware_1.auth, UserController_1.default.index);
         this.router.post("/", UserController_1.default.create);
         this.router.get("/:id", UserController_1.default.show);
         this.router.put("/:id", UserController_1.default.update);

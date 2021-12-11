@@ -1,6 +1,6 @@
 // jalankan aplikasi 2 terminal
-1. yarn ts
-2. yarn dev
+1. yarn ts ==> compile ts ke js biasa
+2. yarn dev ==> menjalankan aplikasi
 
 
 ////// Video 1 instalasi awal
